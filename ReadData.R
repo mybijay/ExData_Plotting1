@@ -4,6 +4,22 @@
 ##Assignment 1
 ##Power Consumption Analysis
 
+
+##Estimate the memory requirement: 
+##  Size per row:
+##    Date in MM/dd/yyyy  10
+##    Time in hh:mm:ss    8
+##    7 numeric fields    7*8=56
+##  Size  per row       74 bytes
+##  Total number of rows  2,075,259 
+##  Total size requirement: 2075259 * 74 bytes = 153,569,166 Bytes
+##                                              =2075259*74/(1024*1024) MB
+##                                              =146 MB
+##                                              I will expect to have more than 150 MB in computer
+
+##Check memory avaliability in computer
+##This can be done through some advance R features with some effort
+
 ##Set working folder
 
 setwd("C:\\Personal\\DataScientistCourse\\04_ExploratoryDataAnalysis\\Assignment1\\ExData_Plotting1")
@@ -37,18 +53,24 @@ summary(powerConsumptionData)
 
 ##Conversion to date time
 powerConsumptionData$Time <- strptime(paste(powerConsumptionData$Date, powerConsumptionData$Time), "%d/%m/%Y %H:%M:%S")
-##Check class
+
+
+##Check class of Time field
 class(powerConsumptionData$Time)
 
 ##Conversion to Date format
 powerConsumptionData$Date<-as.Date(powerConsumptionData$Date,format='%d/%m/%Y')
-##Check class
+
+##Check class of the Date field
 class(powerConsumptionData$Date)
 
 
 #Subset data
 ##Check orignal row count
 nrow(powerConsumptionData)
+
 powerConsumptionData <- subset(powerConsumptionData, Date %in% as.Date(c("2007-02-01", "2007-02-02"), "%Y-%m-%d"))
+
+##Check row count after subsetting
 nrow(powerConsumptionData)
 
