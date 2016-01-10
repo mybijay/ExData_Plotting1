@@ -1,4 +1,5 @@
 # Author: BJ
+# Date: Jan 10, 2016
 
 ##Assignment 1
 ##Power Consumption Analysis
@@ -12,7 +13,16 @@ setwd("C:\\Personal\\DataScientistCourse\\04_ExploratoryDataAnalysis\\Assignment
 ##Note: R package could be used to download and extract.
 
 ##Read data
-powerConsumptionData <- read.table("household_power_consumption.txt", header=TRUE, sep=";", colClasses=c("character", "character", rep("numeric",7)), na="?")
+powerConsumptionData <- read.table("household_power_consumption.txt", 
+                                   header=TRUE, 
+                                   sep=";", 
+                                   colClasses=c(
+                                   "character", 
+                                   "character", 
+                                   rep("numeric",7) #7 consecuitive fields are numeric
+                                   ), 
+                                   na="?"
+                                   )
 
 
 #check table dimensions
